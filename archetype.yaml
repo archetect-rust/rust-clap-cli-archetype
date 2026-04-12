@@ -1,0 +1,52 @@
+---
+description: "Rust CLI application (clap derive, xtask workflow)"
+summary: "Scaffolds a Rust CLI binary using `clap` derive macros, composed with the `rust-xtask-component` for a full SDLC workflow. Single-crate workspace-of-one layout."
+authors: ["Jimmie Fulton <jimmie.fulton@gmail.com>"]
+languages: ["Rust"]
+tags: ["archetype", "rust", "cli", "clap"]
+
+requires:
+  archetect: "3.0.0"
+
+templating:
+  trim_blocks: true
+  lstrip_blocks: true
+
+catalog:
+  # ── Prompt components ──────────────────────────────────────────────
+  org-prompts:
+    description: "Organization + solution name prompts"
+    source: "https://github.com/archetect-common/org-prompts-component.git"
+    show: false
+  project-prompts:
+    description: "Project name prompts (prefix + suffix)"
+    source: "https://github.com/archetect-common/project-prompts-component.git"
+    show: false
+  author-prompts:
+    description: "Author + license prompts"
+    source: "https://github.com/archetect-common/author-prompts-component.git"
+    show: false
+  github-prompts:
+    description: "GitHub repository prompts"
+    source: "https://github.com/archetect-common/github-prompts-component.git"
+    show: false
+
+  # ── Rust components ────────────────────────────────────────────────
+  xtask:
+    description: "xtask workspace crate"
+    source: "https://github.com/archetect-rust/rust-xtask-component.git"
+    show: false
+    answers:
+      xtask_embedded: true
+
+  # ── Libraries (staged at load time) ────────────────────────────────
+  editor-config:
+    description: "EditorConfig + gitattributes partials"
+    source: "https://github.com/archetect-common/editor-config-library.git"
+    library: true
+    show: false
+  license-headers:
+    description: "License header partials"
+    source: "https://github.com/archetect-common/license-headers-library.git"
+    library: true
+    show: false

@@ -1,0 +1,3 @@
+{% include "editor-config/editorconfig-root.atl" %}
+
+{% include "editor-config/editorconfig-rust.atl" %}

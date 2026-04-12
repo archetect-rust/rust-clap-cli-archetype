@@ -1,0 +1,28 @@
+[workspace]
+members = [
+    ".",
+{% for m in components.xtask.workspace_members %}
+    "{{ m }}",
+{% end %}
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["{{ author_full }}"]
+
+[package]
+name = "{{ project_name }}"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "{{ description | default(project_name) }}"
+
+[[bin]]
+name = "{{ project_name }}"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }

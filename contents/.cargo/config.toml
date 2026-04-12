@@ -1,0 +1,4 @@
+[alias]
+{% for alias, cmd in components.xtask.cargo_aliases %}
+{{ alias }} = "{{ cmd }}"
+{% end %}
