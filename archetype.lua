@@ -8,6 +8,8 @@ local context = Context.new()
 -- ── Identity prompts (composed) ────────────────────────────────────
 context:merge(catalog.render("org-prompts", context))
 
+-- Offer "cli" as the curated suffix with an "Other..." escape so the
+-- user can pick anything (or blank) without losing the default.
 context:set("suffix_options", { "cli" })
 context:set("suffix_default", "cli")
 context:merge(catalog.render("project-prompts", context))
